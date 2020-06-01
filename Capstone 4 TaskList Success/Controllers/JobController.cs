@@ -36,7 +36,7 @@ namespace Capstone_4_TaskList_Success.Controllers
 
         public IActionResult TickComplete(int Id)
         {
-            Job oldJob = _context.Job.Find(d);
+            Job oldJob = _context.Job.Find(Id);
 
             if (ModelState.IsValid)
             {
@@ -97,10 +97,6 @@ namespace Capstone_4_TaskList_Success.Controllers
             return RedirectToAction("ListJobs");
         }
 
-        public IActionResult Search()
-        {
-
-        }
-
+   
     }
 }
