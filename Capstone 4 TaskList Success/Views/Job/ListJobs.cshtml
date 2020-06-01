@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Capstone_4_TaskList_Success.Models.Job>
+@{
+    ViewData["Title"] = "ListJobs";
+}
+
+<h1>ListJobs</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complete)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jobs in Model)
+        {
+            <tr>
+                <td>
+                    @jobs.Id
+                </td>
+                <td>
+                    @jobs.Description
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => jobs.DueDate)
+                </td>
+                <td>
+                    <a href="Job/TickComplete?id=@jobs.Id"> @if (jobs.Complete == true)
+                    {
+                        <form asp-action="TickComplete" method="post">
+                            <input onclick="form.submit()" type="checkbox" name="Id" checked />
+                            <input type="hidden" name="Id" value="@jobs.Id" />
+                        </form>
+                    }
+                    else
+                    {
+                        <checkbox>Incomplete</checkbox>
+                    }
+                    </a>
+                </td>
+                <td>
+                    <form>
+                        <button asp-action="UpdateJob" asp-route-id="@jobs.Id">Update</button>
+                        <button asp-action="DeleteJob" asp-route-id="@jobs.Id">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<form>
+    <button asp-action="AddJob"> Add Job </button>
+</form>

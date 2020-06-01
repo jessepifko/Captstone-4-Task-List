@@ -1,0 +1,45 @@
+﻿@model Capstone_4_TaskList_Success.Models.Job
+
+@{
+    ViewData["Title"] = "UpdateJob";
+}
+
+<h1>Update Job</h1>
+
+<h4>Job</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateJob">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DueDate" class="control-label"></label>
+                <input asp-for="DueDate" class="form-control" />
+                <span asp-validation-for="DueDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Complete" class="control-label"></label>
+                <input asp-for="Complete" class="form-control" />
+                <span asp-validation-for="Complete" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update Job" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ListJobs">Back to List</a>
+</div>
+
